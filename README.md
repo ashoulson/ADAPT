@@ -3,6 +3,7 @@
 *A open-source Unity library delivering a platform for designing and authoring functional, purposeful human characters in a rich virtual environment.* 
 
 http://github.com/ashoulson/ADAPT
+
 http://www.youtube.com/watch?v=aW1FJ3Qe1X0
 
 ---
