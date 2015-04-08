@@ -6,7 +6,7 @@ http://github.com/ashoulson/ADAPT
 
 ---
 
-**Paper:
+**Paper:**
 
 A. Shoulson, N. Marshak, M. Kapadia, and N. I. Badler. "ADAPT: The Agent Development and Prototyping Testbed." IEEE Transactions on Visualization and Computer Graphics (TVCG), 2014.
 
