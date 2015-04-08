@@ -1,0 +1,131 @@
+fileFormatVersion: 1
+guid: 6d942c6a2331fdd4db7a13e0394bbbe2
+ModelImporter:
+  importerVersion: 7
+  meshes:
+    scaleFactor: 0.01
+    useFileUnits: 1
+    meshCompression: 0
+    generateColliders: 0
+    swapUVs: 0
+  tangentSpace:
+    normalImportMode: 0
+    tangentImportMode: 1
+    smoothingAngle: 60
+    splitTangents: 1
+  materials:
+    generation: 1
+  animations:
+    generation: 3
+    bakeAnimations: 0
+    animationCompression: 1
+    animationWrapMode: 0
+    splitAnimations: 1
+  nodeInfo:
+    RightToe_End:
+    - 100000
+    - 400000
+    LeftHandIndex4:
+    - 100002
+    - 400002
+    RightUpLeg:
+    - 100004
+    - 400004
+    RightHandIndex4:
+    - 100006
+    - 400006
+    LeftLeg:
+    - 100008
+    - 400008
+    RightFoot:
+    - 100010
+    - 400010
+    LeftHandIndex3:
+    - 100012
+    - 400012
+    RightArm:
+    - 100014
+    - 400014
+    RightHandIndex3:
+    - 100016
+    - 400016
+    LeftHandIndex1:
+    - 100018
+    - 400018
+    RightHandIndex2:
+    - 100020
+    - 400020
+    RightHandIndex1:
+    - 100022
+    - 400022
+    RightLeg:
+    - 100024
+    - 400024
+    RightToeBase:
+    - 100026
+    - 400026
+    LeftToeBase:
+    - 100028
+    - 400028
+    LeftUpLeg:
+    - 100030
+    - 400030
+    LeftHandIndex2:
+    - 100032
+    - 400032
+    RightHand:
+    - 100034
+    - 400034
+    RightForeArm:
+    - 100036
+    - 400036
+    LeftHand:
+    - 100038
+    - 400038
+    LeftToe_End:
+    - 100040
+    - 400040
+    RightShoulder:
+    - 100042
+    - 400042
+    LeftFoot:
+    - 100044
+    - 400044
+    //RootNode:
+    - 100046
+    - 400046
+    - 11100000
+    LeftForeArm:
+    - 100048
+    - 400048
+    LeftArm:
+    - 100050
+    - 400050
+    LeftShoulder:
+    - 100052
+    - 400052
+    HeadTop_End:
+    - 100054
+    - 400054
+    Head:
+    - 100056
+    - 400056
+    Neck:
+    - 100058
+    - 400058
+    Spine2:
+    - 100060
+    - 400060
+    Spine1:
+    - 100062
+    - 400062
+    Spine:
+    - 100064
+    - 400064
+    Hips:
+    - 100066
+    - 400066
+AssetImporter:
+  importerVersion: 1
+  fileIDToRecycleName:
+    7400000: mixamo.com //// ADAPTMan@look_away_gesture

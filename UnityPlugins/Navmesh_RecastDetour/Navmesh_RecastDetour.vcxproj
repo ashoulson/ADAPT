@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)Libraries\RecastNavigation\DebugUtils\DebugUtils.vcxproj">
+      <Project>{62458fe4-ea56-4288-b989-f39d90a60eda}</Project>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)Libraries\RecastNavigation\DetourCrowd\DetourCrowd.vcxproj">
+      <Project>{f0b231c9-e33a-4cbb-8d9c-7aba52101aaa}</Project>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)Libraries\RecastNavigation\DetourTileCache\DetourTileCache.vcxproj">
+      <Project>{f28b1aee-27fb-46ad-add6-40ecddbc913f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)Libraries\RecastNavigation\Detour\Detour.vcxproj">
+      <Project>{bec7150f-4f74-4968-b9bb-c1e9cca7b21c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)Libraries\RecastNavigation\Recast\Recast.vcxproj">
+      <Project>{290bf831-4ef2-4ef7-bc56-aede3edc67a1}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\BuildNavmesh.cpp" />
+    <ClCompile Include="Source\DebugDraw.cpp" />
+    <ClCompile Include="Source\Navmesh.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\Navmesh.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2D69E067-A08B-4797-A561-CFDF8776601A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Recast</RootNamespace>
+    <ProjectName>Navmesh_RecastDetour</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Unity\Assets\Plugins\</OutDir>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
+    <IntDir>$(SolutionDir)UnityPlugins\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Unity\Assets\Plugins\</OutDir>
+    <IntDir>$(SolutionDir)Unity\Assets\Plugins\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_SCL_SECURE_NO_WARNINGS;_DEBUG;_WINDOWS;_USRDLL;RECAST_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\RecastNavigation\Recast\Include;$(SolutionDir)Libraries\RecastNavigation\Detour\Include;$(SolutionDir)Libraries\RecastNavigation\DetourCrowd\Include;$(SolutionDir)Libraries\RecastNavigation\DetourTileCache\Include;$(SolutionDir)Libraries\RecastNavigation\DebugUtils\Include;$(SolutionDir)UnityPlugins\Navmesh_RecastDetour\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(TargetDir) &amp; del $(ProjectName).exp &amp; del $(ProjectName).pdb &amp; del $(ProjectName).ilk &amp; del $(ProjectName).lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_SCL_SECURE_NO_WARNINGS;NDEBUG;_WINDOWS;_USRDLL;RECAST_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\RecastNavigation\Recast\Include;$(SolutionDir)Libraries\RecastNavigation\Detour\Include;$(SolutionDir)Libraries\RecastNavigation\DetourCrowd\Include;$(SolutionDir)Libraries\RecastNavigation\DetourTileCache\Include;$(SolutionDir)Libraries\RecastNavigation\DebugUtils\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

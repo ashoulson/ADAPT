@@ -1,0 +1,131 @@
+fileFormatVersion: 1
+guid: 693ee4eb43b01c94a9ea8735834add6f
+ModelImporter:
+  importerVersion: 7
+  meshes:
+    scaleFactor: 0.01
+    useFileUnits: 1
+    meshCompression: 0
+    generateColliders: 0
+    swapUVs: 0
+  tangentSpace:
+    normalImportMode: 0
+    tangentImportMode: 1
+    smoothingAngle: 60
+    splitTangents: 1
+  materials:
+    generation: 1
+  animations:
+    generation: 3
+    bakeAnimations: 0
+    animationCompression: 1
+    animationWrapMode: 0
+    splitAnimations: 1
+  nodeInfo:
+    //RootNode:
+    - 100000
+    - 400000
+    - 11100000
+    LeftToe_End:
+    - 100002
+    - 400002
+    LeftToeBase:
+    - 100004
+    - 400004
+    LeftFoot:
+    - 100006
+    - 400006
+    LeftLeg:
+    - 100008
+    - 400008
+    LeftUpLeg:
+    - 100010
+    - 400010
+    RightToe_End:
+    - 100012
+    - 400012
+    RightHandIndex4:
+    - 100014
+    - 400014
+    RightHandIndex3:
+    - 100016
+    - 400016
+    RightHandIndex2:
+    - 100018
+    - 400018
+    RightHandIndex1:
+    - 100020
+    - 400020
+    RightHand:
+    - 100022
+    - 400022
+    RightToeBase:
+    - 100024
+    - 400024
+    RightFoot:
+    - 100026
+    - 400026
+    RightLeg:
+    - 100028
+    - 400028
+    RightUpLeg:
+    - 100030
+    - 400030
+    Spine:
+    - 100032
+    - 400032
+    Hips:
+    - 100034
+    - 400034
+    HeadTop_End:
+    - 100036
+    - 400036
+    Head:
+    - 100038
+    - 400038
+    Neck:
+    - 100040
+    - 400040
+    Spine2:
+    - 100042
+    - 400042
+    Spine1:
+    - 100044
+    - 400044
+    RightForeArm:
+    - 100046
+    - 400046
+    RightArm:
+    - 100048
+    - 400048
+    RightShoulder:
+    - 100050
+    - 400050
+    LeftHandIndex4:
+    - 100052
+    - 400052
+    LeftHandIndex3:
+    - 100054
+    - 400054
+    LeftHandIndex2:
+    - 100056
+    - 400056
+    LeftHandIndex1:
+    - 100058
+    - 400058
+    LeftHand:
+    - 100060
+    - 400060
+    LeftForeArm:
+    - 100062
+    - 400062
+    LeftArm:
+    - 100064
+    - 400064
+    LeftShoulder:
+    - 100066
+    - 400066
+AssetImporter:
+  importerVersion: 1
+  fileIDToRecycleName:
+    7400000: mixamo.com //// ADAPTMan@thoughtful_head_shake
