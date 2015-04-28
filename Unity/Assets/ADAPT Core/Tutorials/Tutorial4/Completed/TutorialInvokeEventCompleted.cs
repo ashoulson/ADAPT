@@ -42,8 +42,8 @@ public class TutorialInvokeEventCompleted : MonoBehaviour
         // Estimate the head position based on height
         Vector3 height = new Vector3(0.0f, 1.85f, 0.0f);
 
-        Val<Vector3> WandererHead = Val.Val(() => WandererPos.Value + height);
-        Val<Vector3> FriendHead = Val.Val(() => FriendPos.Value + height);
+        Val<Vector3> WandererHead = Val.Value(() => WandererPos.Value + height);
+        Val<Vector3> FriendHead = Val.Value(() => FriendPos.Value + height);
 
         return new SequenceParallel(
             Friend.Node_HeadLook(WandererHead),
@@ -80,8 +80,8 @@ public class TutorialInvokeEventCompleted : MonoBehaviour
 
     public Node ConversationTree()
     {
-        Val<Vector3> WandererPos = Val.Val(() => Wanderer.transform.position);
-        Val<Vector3> FriendPos = Val.Val(() => Friend.transform.position);
+        Val<Vector3> WandererPos = Val.Value(() => Wanderer.transform.position);
+        Val<Vector3> FriendPos = Val.Value(() => Friend.transform.position);
 
         return new Sequence(
             this.ApproachAndOrient(WandererPos, FriendPos),

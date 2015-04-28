@@ -33,12 +33,12 @@ namespace TreeSharpPlus
         /// An adaptor function to help C# implicitly cast Func to Val
         /// See: http://social.msdn.microsoft.com/Forums/en/csharpgeneral/thread/09b27cdd-e261-4025-acfc-66bfcd0d92cf
         /// </summary>
-        public static Val<T> Val<T>(Func<T> f)
+        public static Val<T> Value<T>(Func<T> f)
         {
             return new Val<T>(f);
         }
 
-        public static Val<T> Val<T>(T v)
+        public static Val<T> Value<T>(T v)
         {
             return new Val<T>(v);
         }

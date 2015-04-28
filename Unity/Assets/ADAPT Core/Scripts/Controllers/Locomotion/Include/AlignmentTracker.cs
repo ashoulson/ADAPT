@@ -73,7 +73,7 @@ public class AlignmentTracker : MonoBehaviour {
 	}
 	
 	public void Reset () {
-		m_Rigidbody = rigidbody;
+		m_Rigidbody = GetComponent<Rigidbody>();
 		m_Transform = transform;
 		m_CurrentLateTime = -1;
 		m_CurrentFixedTime = -1;

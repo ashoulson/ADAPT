@@ -56,7 +56,7 @@ public class ShootBall : MonoBehaviour
             Vector3 currentPosition = this.targetCamera.transform.position;
             Vector3 velocity = 
                 (currentPosition - this.lastPosition) / Time.deltaTime;
-			newBall.rigidbody.velocity = 
+			newBall.GetComponent<Rigidbody>().velocity = 
                 velocity + (cursorRay.direction * magnitude);
             this.cleanup.Add(
                 new KeyValuePair<GameObject, float>(

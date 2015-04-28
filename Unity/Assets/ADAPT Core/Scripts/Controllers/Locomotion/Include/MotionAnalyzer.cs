@@ -423,7 +423,7 @@ public class MotionAnalyzer : IMotionAnalyzer {
 			toeMax = -1000;
 			for (int i=0; i<samples+1; i++) {
 				LegCycleSample s = cycles[leg].samples[i];
-				gameObject.SampleAnimation(animation,i*1.0f/samples*animation.length);
+				animation.SampleAnimation(gameObject,i*1.0f/samples*animation.length);
 				s.ankleMatrix = LocomotionUtil.RelativeMatrix(ankleT,gameObject.transform);
 				s.toeMatrix = LocomotionUtil.RelativeMatrix(toeT,gameObject.transform);
 				s.heel = s.ankleMatrix.MultiplyPoint(legC.legs[leg].ankleHeelVector);
@@ -483,7 +483,7 @@ public class MotionAnalyzer : IMotionAnalyzer {
 			// The stance index sample
 			LegCycleSample ss = cycles[leg].samples[cycles[leg].stanceIndex];
 			// Sample the animation at stance time
-			gameObject.SampleAnimation(animation,cycles[leg].stanceTime*animation.length);
+			animation.SampleAnimation(gameObject,cycles[leg].stanceTime*animation.length);
 			
 			// Using the stance sample as reference we can now determine:
 			
@@ -788,7 +788,7 @@ public class MotionAnalyzer : IMotionAnalyzer {
 		Matrix4x4 objectMatrix = gameObject.transform.localToWorldMatrix;
 		
 		// Time variables
-		float time = LocomotionUtil.Mod(gameObject.animation[animation.name].normalizedTime);
+		float time = LocomotionUtil.Mod(gameObject.GetComponent<Animation>()[animation.name].normalizedTime);
 		int cycleIndex = GetIndexFromTime(time);
 		float timeRounded = GetTimeFromIndex(cycleIndex);
 		

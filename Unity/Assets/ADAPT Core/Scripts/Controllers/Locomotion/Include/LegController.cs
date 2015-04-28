@@ -97,7 +97,7 @@ public class LegController : MonoBehaviour {
 	
 	public void InitFootData(int leg) {
 		// Make sure character is in grounded pose before analyzing
-		gameObject.SampleAnimation(groundedPose,0);
+		groundedPose.SampleAnimation(gameObject,0);
 		
 		// Give each leg a color
 		Vector3 colorVect = Quaternion.AngleAxis(leg*360.0f/legs.Length, Vector3.one) * Vector3.right;
@@ -209,7 +209,7 @@ public class LegController : MonoBehaviour {
 		
 		// Motion sampling have put bones in random pose...
 		// Reset to grounded pose, time 0
-		gameObject.SampleAnimation(groundedPose,0);
+		groundedPose.SampleAnimation(gameObject,0);
 		
 		initialized = true;
 		

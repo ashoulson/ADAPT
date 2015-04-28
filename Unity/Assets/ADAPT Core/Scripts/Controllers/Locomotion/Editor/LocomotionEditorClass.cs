@@ -203,7 +203,7 @@ class LocomotionEditorClass : Editor {
 				}
 				
 				InspectorAnimationGroup unusedGroup = groups[groups.Count-1];
-				List<AnimationClip> unusedClips = new List<AnimationClip>(AnimationUtility.GetAnimationClips(lc.animation));
+				List<AnimationClip> unusedClips = new List<AnimationClip>(AnimationUtility.GetAnimationClips(lc.GetComponent<Animation>()));
 				
 				if (lc.sourceAnimations == null)
 					lc.sourceAnimations = new MotionAnalyzer[0];

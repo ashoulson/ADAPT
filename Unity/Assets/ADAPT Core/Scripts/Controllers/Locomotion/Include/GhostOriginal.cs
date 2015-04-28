@@ -37,11 +37,11 @@ public class GhostOriginal : MonoBehaviour {
 	public Vector3 offset;
 	
 	public void Synch() {
-		foreach (AnimationState state in character.animation) {
-			AnimationState ownState = animation[state.name];
+		foreach (AnimationState state in character.GetComponent<Animation>()) {
+			AnimationState ownState = GetComponent<Animation>()[state.name];
 			if (ownState==null) {
-				animation.AddClip(state.clip, state.name);
-				ownState = animation[state.name];
+				GetComponent<Animation>().AddClip(state.clip, state.name);
+				ownState = GetComponent<Animation>()[state.name];
 			}
 			if (ownState.enabled != state.enabled) {
 				ownState.wrapMode = state.wrapMode;
