@@ -35,7 +35,7 @@ public class ToggleRender : MonoBehaviour
 
 	void Update () 
     {
-        renderer.enabled = this.defaultState;
+        GetComponent<Renderer>().enabled = this.defaultState;
         if (Input.GetKeyDown(toggleKeyName))
             this.defaultState = !this.defaultState;
 	}

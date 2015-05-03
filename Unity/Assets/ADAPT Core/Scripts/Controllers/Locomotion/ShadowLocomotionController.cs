@@ -299,13 +299,16 @@ public class ShadowLocomotionController : ShadowController
         nonGroupMotionWeights = new float[legC.nonGroupMotions.Length];
 
         // Create control motion state
-        controlMotionState = this.transform.animation["LocomotionSystem"];
+        controlMotionState = this.transform.GetComponent<Animation>()["LocomotionSystem"];
         if (controlMotionState == null)
         {
             // Create dummy animation state with control motion name
-            this.transform.animation.AddClip(
-                new AnimationClip(), "LocomotionSystem");
-            controlMotionState = this.transform.animation["LocomotionSystem"];
+			AnimationClip tempAnim= new AnimationClip();
+			tempAnim.legacy=true;
+
+            this.transform.GetComponent<Animation>().AddClip(
+                tempAnim, "LocomotionSystem");
+            controlMotionState = this.transform.GetComponent<Animation>()["LocomotionSystem"];
         }
         controlMotionState.enabled = true;
         controlMotionState.wrapMode = WrapMode.Loop;
@@ -317,14 +320,14 @@ public class ShadowLocomotionController : ShadowController
         int cm = 0;
         for (int m = 0; m < legC.motions.Length; m++)
         {
-            motionStates[m] = this.transform.animation[legC.motions[m].name];
+            motionStates[m] = this.transform.GetComponent<Animation>()[legC.motions[m].name];
             if (motionStates[m] == null)
             {
-                this.transform.animation.AddClip(
+                this.transform.GetComponent<Animation>().AddClip(
                     legC.motions[m].animation, 
                     legC.motions[m].name);
                 motionStates[m] = 
-                    this.transform.animation[legC.motions[m].name];
+                    this.transform.GetComponent<Animation>()[legC.motions[m].name];
             }
             motionStates[m].wrapMode = WrapMode.Loop;
             if (legC.motions[m].motionType == MotionType.WalkCycle)
@@ -339,15 +342,18 @@ public class ShadowLocomotionController : ShadowController
         for (int g = 0; g < motionGroupStates.Length; g++)
         {
             AnimationState controller = 
-                this.transform.animation[legC.motionGroups[g].name];
+                this.transform.GetComponent<Animation>()[legC.motionGroups[g].name];
             if (controller == null)
             {
                 // Create dummy animation state with motion group name
-                this.transform.animation.AddClip(
-                    new AnimationClip(), 
+				AnimationClip tempAnim= new AnimationClip();
+				tempAnim.legacy=true;
+
+                this.transform.GetComponent<Animation>().AddClip(
+                    tempAnim, 
                     legC.motionGroups[g].name);
                 controller = 
-                    this.transform.animation[legC.motionGroups[g].name];
+                    this.transform.GetComponent<Animation>()[legC.motionGroups[g].name];
             }
             controller.enabled = true;
             controller.wrapMode = WrapMode.Loop;
@@ -363,7 +369,7 @@ public class ShadowLocomotionController : ShadowController
             for (int m = 0; m < motionGroupStates[g].motionStates.Length; m++)
             {
                 motionGroupStates[g].motionStates[m] =
-                    transform.animation[legC.motionGroups[g].motions[m].name];
+                    transform.GetComponent<Animation>()[legC.motionGroups[g].motions[m].name];
             }
             motionGroupStates[g].primaryMotionIndex = 0;
         }
@@ -373,14 +379,14 @@ public class ShadowLocomotionController : ShadowController
         for (int m = 0; m < legC.nonGroupMotions.Length; m++)
         {
             nonGroupMotionStates[m] = 
-                this.transform.animation[legC.nonGroupMotions[m].name];
+                this.transform.GetComponent<Animation>()[legC.nonGroupMotions[m].name];
             if (nonGroupMotionStates[m] == null)
             {
-                this.transform.animation.AddClip(
+                this.transform.GetComponent<Animation>().AddClip(
                     legC.nonGroupMotions[m].animation, 
                     legC.nonGroupMotions[m].name);
                 nonGroupMotionStates[m] = 
-                    this.transform.animation[legC.nonGroupMotions[m].name];
+                    this.transform.GetComponent<Animation>()[legC.nonGroupMotions[m].name];
                 nonGroupMotionWeights[m] = nonGroupMotionStates[m].weight;
             }
         }
@@ -1593,7 +1599,7 @@ public class ShadowLocomotionController : ShadowController
         }
         else if (overrideGround != null)
         {
-            if (overrideGround.collider.bounds.Contains(pos))
+            if (overrideGround.GetComponent<Collider>().bounds.Contains(pos))
             {
                 Vector3 terrainPos = pos/* - overrideGround.transform.position*/;
                 float localHeight = overrideGround.terrainData.GetInterpolatedHeight(terrainPos.x, terrainPos.z);
@@ -2162,7 +2168,7 @@ public class ShadowLocomotionController : ShadowController
     public void RenderAnimationStates()
     {
         int i = 0;
-        foreach (AnimationState state in this.transform.animation)
+        foreach (AnimationState state in this.transform.GetComponent<Animation>())
         {
             string str = state.name;
             float v = 0.5f + 0.5f * state.weight;

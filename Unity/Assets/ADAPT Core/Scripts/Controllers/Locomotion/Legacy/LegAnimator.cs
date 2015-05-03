@@ -276,11 +276,11 @@ public class LegAnimator : MonoBehaviour {
 		nonGroupMotionWeights = new float[legC.nonGroupMotions.Length];
 		
 		// Create control motion state
-		controlMotionState = animation["LocomotionSystem"];
+		controlMotionState = GetComponent<Animation>()["LocomotionSystem"];
 		if (controlMotionState==null) {
 			// Create dummy animation state with control motion name
-			animation.AddClip(new AnimationClip(), "LocomotionSystem");
-			controlMotionState = animation["LocomotionSystem"];
+			GetComponent<Animation>().AddClip(new AnimationClip(), "LocomotionSystem");
+			controlMotionState = GetComponent<Animation>()["LocomotionSystem"];
 		}
 		controlMotionState.enabled = true;
 		controlMotionState.wrapMode = WrapMode.Loop;
@@ -291,10 +291,10 @@ public class LegAnimator : MonoBehaviour {
 		motionGroupStates = new MotionGroupState[legC.motionGroups.Length];
 		int cm = 0;
 		for (int m=0; m<legC.motions.Length; m++) {
-			motionStates[m] = animation[legC.motions[m].name];
+			motionStates[m] = GetComponent<Animation>()[legC.motions[m].name];
 			if (motionStates[m]==null) {
-				animation.AddClip(legC.motions[m].animation, legC.motions[m].name);
-				motionStates[m] = animation[legC.motions[m].name];
+				GetComponent<Animation>().AddClip(legC.motions[m].animation, legC.motions[m].name);
+				motionStates[m] = GetComponent<Animation>()[legC.motions[m].name];
 			}
 			motionStates[m].wrapMode = WrapMode.Loop;
 			if (legC.motions[m].motionType==MotionType.WalkCycle) {
@@ -306,11 +306,11 @@ public class LegAnimator : MonoBehaviour {
 		
 		// Create motion group states
 		for (int g=0; g<motionGroupStates.Length; g++) {
-			AnimationState controller = animation[legC.motionGroups[g].name];
+			AnimationState controller = GetComponent<Animation>()[legC.motionGroups[g].name];
 			if (controller==null) {
 				// Create dummy animation state with motion group name
-				animation.AddClip(new AnimationClip(), legC.motionGroups[g].name);
-				controller = animation[legC.motionGroups[g].name];
+				GetComponent<Animation>().AddClip(new AnimationClip(), legC.motionGroups[g].name);
+				controller = GetComponent<Animation>()[legC.motionGroups[g].name];
 			}
 			controller.enabled = true;
 			controller.wrapMode = WrapMode.Loop;
@@ -323,7 +323,7 @@ public class LegAnimator : MonoBehaviour {
 			motionGroupStates[g].relativeWeights = new float[legC.motionGroups[g].motions.Length];
 			for (int m=0; m<motionGroupStates[g].motionStates.Length; m++) {
 				motionGroupStates[g].motionStates[m] =
-					animation[legC.motionGroups[g].motions[m].name];
+					GetComponent<Animation>()[legC.motionGroups[g].motions[m].name];
 			}
 			motionGroupStates[g].primaryMotionIndex = 0;
 		}
@@ -331,10 +331,10 @@ public class LegAnimator : MonoBehaviour {
 		// Create list of motions states that are not in motions groups
 		nonGroupMotionStates = new AnimationState[legC.nonGroupMotions.Length];
 		for (int m=0; m<legC.nonGroupMotions.Length; m++) {
-			nonGroupMotionStates[m] = animation[legC.nonGroupMotions[m].name];
+			nonGroupMotionStates[m] = GetComponent<Animation>()[legC.nonGroupMotions[m].name];
 			if (nonGroupMotionStates[m]==null) {
-				animation.AddClip(legC.nonGroupMotions[m].animation, legC.nonGroupMotions[m].name);
-				nonGroupMotionStates[m] = animation[legC.nonGroupMotions[m].name];
+				GetComponent<Animation>().AddClip(legC.nonGroupMotions[m].animation, legC.nonGroupMotions[m].name);
+				nonGroupMotionStates[m] = GetComponent<Animation>()[legC.nonGroupMotions[m].name];
 				nonGroupMotionWeights[m] = nonGroupMotionStates[m].weight;
 			}
 		}
@@ -1416,7 +1416,7 @@ public class LegAnimator : MonoBehaviour {
         }
         else if (overrideGround != null)
         {
-            if (overrideGround.collider.bounds.Contains(pos))
+            if (overrideGround.GetComponent<Collider>().bounds.Contains(pos))
             {
                 Vector3 terrainPos = pos/* - overrideGround.transform.position*/;
                 float localHeight = overrideGround.terrainData.GetInterpolatedHeight(terrainPos.x, terrainPos.z);
@@ -1938,7 +1938,7 @@ public class LegAnimator : MonoBehaviour {
 
 	public void RenderAnimationStates() {
 		int i = 0;
-		foreach (AnimationState state in animation) {
+		foreach (AnimationState state in GetComponent<Animation>()) {
 			string str = state.name;
 			float v = 0.5f+0.5f*state.weight;
 			GUI.color = new Color(0,0,v,1);

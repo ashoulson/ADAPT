@@ -42,7 +42,7 @@ public class DummyRagdollCoordinator : ShadowCoordinator
     void Awake()
     {
         CharacterController cc = GetComponent<CharacterController>();
-        cc.collider.isTrigger = true;
+        cc.GetComponent<Collider>().isTrigger = true;
         this.dWeight = new Slider(2.0f);
         this.ragdollPose = this.NewTransformArray();
         this.locomotionPose = this.NewTransformArray();

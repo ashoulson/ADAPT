@@ -31,12 +31,12 @@ public class ShadowAnimationController : ShadowController
 
     public bool IsPlaying()
     {
-        return transform.animation.isPlaying;
+        return transform.GetComponent<Animation>().isPlaying;
     }
 
     public bool IsPlaying(string name)
     {
-        return transform.animation.IsPlaying(name);
+        return transform.GetComponent<Animation>().IsPlaying(name);
     }
 
     public override void ControlledStart()
@@ -58,13 +58,13 @@ public class ShadowAnimationController : ShadowController
     public void AnimPlay(string name)
     {
         this.started = true;
-        transform.animation.CrossFade(name);
+        transform.GetComponent<Animation>().CrossFade(name);
     }
 
     public void AnimStop()
     {
         this.started = false;
-        transform.animation.Stop();
+        transform.GetComponent<Animation>().Stop();
     }
 
     #region Messages

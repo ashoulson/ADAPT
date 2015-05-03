@@ -35,7 +35,7 @@ public class TutorialWanderBehaviorCompleted : Behavior
 
     protected Node ST_ApproachAndWait(Transform target)
     {
-        Val<Vector3> position = Val.Val(() => target.position);
+        Val<Vector3> position = Val.Value(() => target.position);
 
         return new Sequence(
             //new LeafTrace("Going to: " + position.Value),

@@ -36,7 +36,7 @@ public class Shadow
     // A dictionary that caches transforms in the shadow for quick remapping
     protected Dictionary<string, Transform> quickFind;
 
-    public Animation animation { get { return this._rootObject.animation; } }
+    public Animation animation { get { return this._rootObject.GetComponent<Animation>(); } }
     public Transform transform { get { return this._rootObject.transform; } }
     public GameObject gameObject { get { return this._rootObject; } }
 
@@ -61,7 +61,7 @@ public class Shadow
         Transform originalHips,
         ShadowController controller)
     {
-        if (originalRoot.animation == null)
+        if (originalRoot.GetComponent<Animation>() == null)
             throw new System.ArgumentException(
                 "Component to be shadowed must have animation component", 
                 "originalRoot");
@@ -85,13 +85,13 @@ public class Shadow
         //       animations get copied over, and make the animation
         //       component itself optional. - AS
         this._rootObject.AddComponent<Animation>();
-        foreach (AnimationState aState in originalRoot.animation)
-            this._rootObject.animation.AddClip(aState.clip, aState.name);
-        this._rootObject.animation.playAutomatically = false;
+        foreach (AnimationState aState in originalRoot.GetComponent<Animation>())
+            this._rootObject.GetComponent<Animation>().AddClip(aState.clip, aState.name);
+        this._rootObject.GetComponent<Animation>().playAutomatically = false;
 
         // The shadow should always animate, despite not being rendered
         // TODO: Adjust this as per LOD. - AS
-        this._rootObject.animation.cullingType =
+        this._rootObject.GetComponent<Animation>().cullingType =
             AnimationCullingType.AlwaysAnimate;
         
         // Set the name based on what's being cloned
