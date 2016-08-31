@@ -77,6 +77,17 @@ public class Shadow
         this._rootHips = quickFind[originalHips.name];
 
         // Add the ShadowGizmo
+
+
+        GameObject shadowsparent = GameObject.Find("animation_shadows");
+        if ( shadowsparent == null)
+        {
+            shadowsparent = new GameObject();
+            shadowsparent.name = "animation_shadows";
+        }
+        this._rootObject.transform.parent = shadowsparent.transform;
+        
+
         ShadowGizmo sg = this._rootObject.AddComponent<ShadowGizmo>();
         sg.parentController = controller;
 
