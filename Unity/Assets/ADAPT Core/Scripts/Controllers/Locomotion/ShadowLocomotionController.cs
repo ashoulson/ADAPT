@@ -1909,12 +1909,8 @@ public class ShadowLocomotionController : ShadowController
     {
         if (!lineMaterial)
         {
-            lineMaterial = new Material("Shader \"Lines/Colored Blended\" {" +
-                "SubShader { Pass { " +
-                "	BindChannels { Bind \"Color\",color } " +
-                "	Blend SrcAlpha OneMinusSrcAlpha " +
-                "	ZWrite Off Cull Off Fog { Mode Off } " +
-                "} } }");
+            Shader sh = Shader.Find("Lines/ColoredBlended");
+            lineMaterial = new Material(sh);
             lineMaterial.hideFlags = HideFlags.HideAndDontSave;
             lineMaterial.shader.hideFlags = HideFlags.HideAndDontSave;
         }

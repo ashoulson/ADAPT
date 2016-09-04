@@ -47,7 +47,7 @@ public class NavmeshBuilderEditor : Editor {
     SerializedProperty sp_detailSampleMaxError;
     SerializedProperty sp_keepIntermediateData;
 
-	[MenuItem("ADAPT/Navmesh Builder")]
+	[MenuItem("Assets/Navmesh Builder")]
 	public static void SelectBuilder(MenuCommand mc)
 	{
 		Selection.activeObject = NavmeshBuilder.Instance;
