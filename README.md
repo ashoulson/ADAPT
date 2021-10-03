@@ -12,11 +12,11 @@ http://www.youtube.com/watch?v=aW1FJ3Qe1X0
 
 A. Shoulson, N. Marshak, M. Kapadia, and N. I. Badler. "ADAPT: The Agent Development and Prototyping Testbed." IEEE Transactions on Visualization and Computer Graphics (TVCG), 2014.
 
-**PDF:** http://ashoulson.com/papers/2014-tvcg-adapt.pdf
+**PDF:** [Paper/2014-tvcg-adapt.pdf](Paper/2014-tvcg-adapt.pdf)
 
-**Supplement:** http://ashoulson.com/papers/2014-tvcg-adapt-supplement.pdf
+**Supplement:** [Papers/2014-tvcg-adapt-supplement.pdf](Papers/2014-tvcg-adapt-supplement.pdf)
 
-**BibTeX:** http://ashoulson.com/papers/2014-tvcg-adapt.bib
+**BibTeX:** [Papers/2014-tvcg-adapt.bib](Papers/2014-tvcg-adapt.bib)
 
 ---
 
